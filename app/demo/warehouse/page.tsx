@@ -115,11 +115,12 @@ export default function WarehouseDemoPage() {
           stockStatus(state, material.id, warehouseId as WarehouseId) !== "In Stock"
       )
     ).length;
+    const today = nowLabel().slice(0, 10);
     const issuedToday = state.movements
-      .filter((movement) => movement.type === "Issue" && movement.time.includes("2026-08-29"))
+      .filter((movement) => movement.type === "Issue" && movement.time.includes(today))
       .reduce((sum, movement) => sum + movement.quantity, 0);
     const transfersToday = state.movements.filter(
-      (movement) => movement.type === "Transfer" && movement.time.includes("2026-08-29")
+      (movement) => movement.type === "Transfer" && movement.time.includes(today)
     ).length;
 
     return {
@@ -349,6 +350,10 @@ export default function WarehouseDemoPage() {
           return { ...item, issued: item.issued + issueQty };
         });
 
+        if (!issuedAny) {
+          return request;
+        }
+
         const totals = requestTotals({ ...request, items });
         const status: RequestStatus = totals.remaining > 0 ? "Partially Issued" : "Issued";
         return addTimeline(
@@ -383,8 +388,8 @@ export default function WarehouseDemoPage() {
 
       if (type === "Issue" || type === "Transfer") {
         const source = nextStock[materialId][from];
-        if (availableStock(source.onHand, 0) < quantity) {
-          showToast("Cannot move more than on-hand stock.", "error");
+        if (availableStock(source.onHand, source.reserved) < quantity) {
+          showToast("Cannot move more than available unreserved stock.", "error");
           return current;
         }
         source.onHand -= quantity;
@@ -427,8 +432,8 @@ export default function WarehouseDemoPage() {
     return [
       {
         ...movement,
-        id: nextMovementId(current.movements.length),
-        reference: nextMovementReference(movement.type, current.movements.length),
+        id: nextMovementId(movements.length),
+        reference: nextMovementReference(movement.type, movements.length),
         time: nowLabel()
       },
       ...movements
