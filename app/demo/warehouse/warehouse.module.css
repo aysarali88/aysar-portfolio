@@ -105,6 +105,18 @@
   padding: 1.2rem;
 }
 
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(15, 35, 64, 0.18);
+  font-weight: 850;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -171,6 +183,10 @@
   gap: 1rem;
 }
 
+.kpiGridSix {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 .kpiGrid article,
 .panel {
   border: 1px solid #dbe5ef;
@@ -201,7 +217,8 @@
 
 .dashboardGrid,
 .twoColumn,
-.twoColumnWide {
+.twoColumnWide,
+.threePanelGrid {
   display: grid;
   gap: 1rem;
 }
@@ -213,6 +230,10 @@
 
 .twoColumnWide {
   grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+}
+
+.threePanelGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .panel {
@@ -269,6 +290,12 @@
   color: #1d4ed8;
 }
 
+.error,
+.danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
 .neutral {
   background: #eef2f7;
   color: #475569;
@@ -304,6 +331,8 @@
 }
 
 .activityList,
+.alertList,
+.rankList,
 .detailStack,
 .warehouseStack,
 .movementStack,
@@ -314,9 +343,12 @@
 }
 
 .activityList > div,
+.alertList > div,
+.rankList > div,
 .warehouseStack > div,
 .movementStack article,
 .requestList button,
+.requestSummary,
 .timeline > div,
 .itemCard {
   border: 1px solid #e2e8f0;
@@ -325,7 +357,10 @@
 }
 
 .activityList > div,
+.alertList > div,
+.rankList > div,
 .movementStack article,
+.requestSummary,
 .timeline > div,
 .itemCard {
   padding: 0.85rem;
@@ -333,6 +368,10 @@
 
 .activityList strong,
 .activityList span,
+.alertList strong,
+.alertList span,
+.rankList strong,
+.rankList small,
 .movementStack strong,
 .movementStack span,
 .movementStack small,
@@ -346,6 +385,8 @@
 }
 
 .activityList strong,
+.alertList strong,
+.rankList strong,
 .movementStack strong,
 .timeline strong,
 .itemCard strong {
@@ -354,6 +395,8 @@
 }
 
 .activityList span,
+.alertList span,
+.rankList small,
 .movementStack span,
 .movementStack small,
 .movementStack p,
@@ -382,7 +425,10 @@
 
 .fieldLabel input,
 .fieldLabel select,
-.panelHeader select {
+.fieldLabel textarea,
+.panelHeader select,
+.filterRow input,
+.filterRow select {
   width: 100%;
   min-height: 2.7rem;
   border: 1px solid #cfdbea;
@@ -391,6 +437,17 @@
   color: #102033;
   font: inherit;
   padding: 0.55rem 0.7rem;
+}
+
+.fieldLabel textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+}
+
+.filterRow {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
 }
 
 .actionRow {
@@ -406,6 +463,53 @@
   flex-wrap: wrap;
   gap: 0.55rem;
   align-items: center;
+}
+
+.recordHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f8fafc, #eef6ff);
+}
+
+.recordHeader h2 {
+  margin: 0.45rem 0 0.25rem;
+  color: #0f172a;
+  font-size: 1.4rem;
+}
+
+.recordHeader p {
+  margin: 0;
+  color: #64748b;
+  font-weight: 780;
+}
+
+.recordGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.recordGrid span,
+.notesBox {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 0.88rem;
+  font-weight: 760;
+}
+
+.recordGrid strong {
+  color: #0f172a;
+}
+
+.notesBox {
+  margin: 0;
 }
 
 .detailMeta > span:not(.badge),
@@ -505,6 +609,43 @@
   font-weight: 760;
 }
 
+.requestList small {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.requestCardFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.requestCardFooter span {
+  color: #1e3a8a;
+  font-weight: 850;
+}
+
+.rankList > div {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rankList > div > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 10px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 950;
+}
+
 .emptyState {
   margin: 0;
   padding: 1rem;
@@ -530,11 +671,16 @@
 
   .dashboardGrid,
   .twoColumn,
-  .twoColumnWide {
+  .twoColumnWide,
+  .threePanelGrid {
     grid-template-columns: 1fr;
   }
 
   .kpiGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recordGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -545,7 +691,9 @@
   }
 
   .topbar,
-  .panelHeader {
+  .panelHeader,
+  .recordHeader,
+  .filterRow {
     align-items: stretch;
     flex-direction: column;
   }
@@ -558,7 +706,8 @@
 
   .demoNav,
   .kpiGrid,
-  .formGrid {
+  .formGrid,
+  .recordGrid {
     grid-template-columns: 1fr;
   }
 

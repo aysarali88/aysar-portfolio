@@ -4,13 +4,20 @@ export type MaterialCategory = "Cable" | "CPE" | "Splitter" | "Passive" | "Acces
 
 export type Material = {
   id: string;
+  code: string;
   name: string;
   unit: string;
   category: MaterialCategory;
   reorderLevel: number;
 };
 
-export type Stock = Record<string, Record<WarehouseId, number>>;
+export type StockLevel = {
+  onHand: number;
+  reserved: number;
+  lowThreshold: number;
+};
+
+export type Stock = Record<string, Record<WarehouseId, StockLevel>>;
 
 export type RequestStatus =
   | "Draft"
@@ -18,17 +25,20 @@ export type RequestStatus =
   | "Approved"
   | "Partially Issued"
   | "Issued"
-  | "Closed";
+  | "Cancelled";
 
 export type RequestItem = {
   materialId: string;
-  quantity: number;
+  requested: number;
+  approved: number;
   issued: number;
+  notes?: string;
 };
 
 export type TimelineEvent = {
   id: string;
   time: string;
+  user: string;
   title: string;
   note: string;
 };
@@ -36,24 +46,29 @@ export type TimelineEvent = {
 export type MaterialRequest = {
   id: string;
   requester: string;
+  department: string;
   approver: string;
   warehouseId: WarehouseId;
   targetArea: string;
   status: RequestStatus;
-  createdAt: string;
+  requestDate: string;
+  requiredDate: string;
+  notes: string;
   items: RequestItem[];
   timeline: TimelineEvent[];
 };
 
-export type MovementType = "Received" | "Issued" | "Returned" | "Transferred";
+export type MovementType = "Receive" | "Issue" | "Return" | "Transfer";
 
 export type Movement = {
   id: string;
+  reference: string;
   type: MovementType;
   materialId: string;
   quantity: number;
   from?: WarehouseId;
   to?: WarehouseId;
+  destination?: string;
   requestId?: string;
   actor: string;
   time: string;
