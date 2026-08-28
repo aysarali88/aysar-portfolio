@@ -66,9 +66,7 @@ This project is suitable for Vercel deployment.
 4. Use the default build command: `pnpm run build`.
 5. Deploy.
 
-## Current Placeholders
+## Public Assets
 
-- LinkedIn URL
-- Email address
-- Downloadable CV file
-- Professional portrait at `public/aysar-obeidat.jpg`
+- Professional portrait: `public/aysar-obeidat.jpg`
+- Downloadable CV: `public/Aysar-Obeidat-CV.docx`

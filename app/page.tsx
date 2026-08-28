@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const contact = {
-  linkedInUrl: "",
-  email: "",
-  cvUrl: ""
+  linkedInUrl: "https://www.linkedin.com/in/aysar-obeidat-250ba4a2/",
+  email: "aysarobeidat@gmail.com",
+  cvUrl: "/Aysar-Obeidat-CV.docx"
 };
 
 const portraitPath = "/aysar-obeidat.jpg";
@@ -186,8 +186,16 @@ function ContactAction({
     );
   }
 
+  const isExternal = href.startsWith("http");
+
   return (
-    <a className="contact-link" href={href} download={download}>
+    <a
+      className="contact-link"
+      href={href}
+      download={download}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      target={isExternal ? "_blank" : undefined}
+    >
       {children}
     </a>
   );
