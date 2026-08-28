@@ -68,5 +68,5 @@ This project is suitable for Vercel deployment.
 
 ## Public Assets
 
-- Professional portrait: `public/aysar-obeidat.jpg`
+- Professional portrait: `public/aysar-obeidat-portrait-v2.jpg`
 - Downloadable CV: `public/Aysar-Obeidat-CV.docx`

@@ -9,8 +9,10 @@ const contact = {
   cvUrl: "/Aysar-Obeidat-CV.docx"
 };
 
-const portraitPath = "/aysar-obeidat.jpg";
-const hasPortrait = existsSync(join(process.cwd(), "public", "aysar-obeidat.jpg"));
+const portraitPath = "/aysar-obeidat-portrait-v2.jpg";
+const hasPortrait = existsSync(
+  join(process.cwd(), "public", "aysar-obeidat-portrait-v2.jpg")
+);
 
 const navItems = [
   { label: "About", href: "/#about" },
