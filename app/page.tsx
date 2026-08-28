@@ -356,7 +356,7 @@ export default function Home() {
 
         <article className="featured-project reveal">
           <div className="project-content">
-            <span className="status">Interactive Demo — Under Development</span>
+            <span className="status">Live Demo — Try the System</span>
             <h3>FTTH Warehouse & Material Control</h3>
             <div className="project-text">
               <h4>Operational Challenge</h4>
@@ -388,6 +388,9 @@ export default function Home() {
                 <span key={step}>{step}</span>
               ))}
             </div>
+            <Link className="button primary project-demo-link" href="/demo/warehouse">
+              Explore Interactive Demo
+            </Link>
           </div>
           <div className="dashboard-preview" aria-label="Future dashboard screenshot area">
             <div className="preview-topbar">

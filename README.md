@@ -13,6 +13,10 @@ The site positions Aysar as an FTTH / OSP Operations & Rollout professional who 
 - New FTTH operations approach lifecycle section
 - Updated contact/footer placeholders for future real links and assets
 
+## Interactive Demo
+
+- FTTH Warehouse & Material Control demo: `/demo/warehouse`
+
 ## Technology Stack
 
 - Next.js

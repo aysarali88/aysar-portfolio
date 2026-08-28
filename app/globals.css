@@ -589,6 +589,11 @@ h4 {
   color: var(--accent);
 }
 
+.project-demo-link {
+  width: fit-content;
+  margin-top: 1.25rem;
+}
+
 .dashboard-preview {
   min-height: 100%;
   padding: 1rem;
@@ -1069,6 +1074,10 @@ h4 {
 
   .button,
   .contact-link {
+    width: 100%;
+  }
+
+  .project-demo-link {
     width: 100%;
   }
 
