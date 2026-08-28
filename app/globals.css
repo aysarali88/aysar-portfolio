@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
 }
 
 body {
@@ -90,6 +91,7 @@ nav a:focus-visible {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 6rem 0;
+  scroll-margin-top: 6.5rem;
 }
 
 .hero {
@@ -180,6 +182,14 @@ h3 {
 .button:hover,
 .contact-link:hover {
   transform: translateY(-2px);
+}
+
+.is-placeholder {
+  cursor: default;
+}
+
+.is-placeholder:hover {
+  transform: none;
 }
 
 .button.primary {

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const expertise = [
   "FTTH Operations",
   "OSP Deployment",
@@ -71,26 +73,26 @@ const experience = [
 ];
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" }
+  { label: "About", href: "/#about" },
+  { label: "Expertise", href: "/#expertise" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" }
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header" aria-label="Main navigation">
-        <a className="brand" href="#top" aria-label="Aysar Obeidat home">
+        <Link className="brand" href="/#top" aria-label="Aysar Obeidat home">
           <span className="brand-mark" aria-hidden="true" />
           <span>Aysar Obeidat</span>
-        </a>
+        </Link>
         <nav>
           {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} href={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </header>
@@ -109,16 +111,16 @@ export default function Home() {
             operational efficiency.
           </p>
           <div className="hero-actions" aria-label="Primary actions">
-            <a className="button primary" href="#projects">
+            <Link className="button primary" href="/#projects">
               View Projects
-            </a>
-            <a
+            </Link>
+            <Link
               className="button secondary"
-              href="#contact"
+              href="/#contact"
               aria-label="LinkedIn placeholder in contact section"
             >
               LinkedIn
-            </a>
+            </Link>
           </div>
         </div>
         <div className="network-panel" aria-hidden="true">
@@ -230,15 +232,15 @@ export default function Home() {
             <h2>Open to FTTH, OSP rollout, and telecom operations opportunities.</h2>
           </div>
           <div className="contact-actions" aria-label="Contact placeholders">
-            <a className="contact-link" href="#" aria-disabled="true">
+            <span className="contact-link is-placeholder" aria-disabled="true">
               LinkedIn: Placeholder
-            </a>
-            <a className="contact-link" href="mailto:placeholder@example.com">
+            </span>
+            <span className="contact-link is-placeholder" aria-disabled="true">
               Email: Placeholder
-            </a>
-            <a className="contact-link" href="#" aria-disabled="true">
+            </span>
+            <span className="contact-link is-placeholder" aria-disabled="true">
               Download CV: Placeholder
-            </a>
+            </span>
           </div>
         </div>
       </section>
