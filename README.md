@@ -1,8 +1,17 @@
 # Aysar Obeidat Portfolio
 
-Version 1 of a professional personal portfolio website for Aysar Obeidat.
+Version 1.1 of a professional personal portfolio website for Aysar Obeidat.
 
 The site positions Aysar as an FTTH / OSP Operations & Rollout professional who uses digital solutions and automation to improve telecom operations. It is intentionally a static portfolio at this stage: no databases, authentication, dashboards, or working product demos are included.
+
+## Version 1.1 Updates
+
+- Executive hero with a portrait-ready layout
+- Stronger FTTH / OSP positioning and personal statement
+- Grouped expertise cards for FTTH & OSP, operations leadership, and digital transformation
+- Expanded featured projects with operational challenge, solution, workflow, and capabilities
+- New FTTH operations approach lifecycle section
+- Updated contact/footer placeholders for future real links and assets
 
 ## Technology Stack
 
@@ -16,13 +25,13 @@ The site positions Aysar as an FTTH / OSP Operations & Rollout professional who 
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Start the development server:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Open `http://localhost:3000` in a browser.
@@ -32,19 +41,19 @@ Open `http://localhost:3000` in a browser.
 Run TypeScript checks:
 
 ```bash
-npm run typecheck
+pnpm run typecheck
 ```
 
 Run linting:
 
 ```bash
-npm run lint
+pnpm run lint
 ```
 
 Create a production build:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## Vercel Deployment
@@ -54,7 +63,7 @@ This project is suitable for Vercel deployment.
 1. Push the repository to GitHub.
 2. Import the repository in Vercel.
 3. Keep the framework preset as Next.js.
-4. Use the default build command: `npm run build`.
+4. Use the default build command: `pnpm run build`.
 5. Deploy.
 
 ## Current Placeholders
@@ -62,3 +71,4 @@ This project is suitable for Vercel deployment.
 - LinkedIn URL
 - Email address
 - Downloadable CV file
+- Professional portrait at `public/aysar-obeidat.jpg`

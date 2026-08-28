@@ -1,84 +1,197 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import Image from "next/image";
 import Link from "next/link";
 
-const expertise = [
-  "FTTH Operations",
-  "OSP Deployment",
-  "FTTH Rollout",
-  "Fiber Optics",
-  "Service Activation",
-  "Field Operations",
-  "Material Management",
-  "Technical Support",
-  "Network Troubleshooting",
-  "Team Leadership",
-  "Process Automation",
-  "Operational Reporting",
-  "Data Analytics"
-];
+const contact = {
+  linkedInUrl: "",
+  email: "",
+  cvUrl: ""
+};
 
-const projects = [
-  {
-    title: "FTTH Warehouse & Material Control",
-    description:
-      "A digital material-management workflow designed around FTTH operations, covering BOQ visibility, material requests, approvals, warehouse issuance, field allocation, returns, reconciliation, inventory tracking, and operational reporting.",
-    focus: ["Material flow", "Inventory visibility", "Operational reporting"]
-  },
-  {
-    title: "FTTH Rollout Management",
-    description:
-      "An operational tracking and dashboard concept for monitoring FTTH rollout progress, productivity, field performance, material utilization, and overall project visibility.",
-    focus: ["Rollout progress", "Field productivity", "Project visibility"]
-  },
-  {
-    title: "Digital TSSR & Site Survey",
-    description:
-      "A digital field-survey workflow for capturing structured site information, photographs, survey evidence, field data, and standardized reporting.",
-    focus: ["Site evidence", "Field data", "Standardized reports"]
-  }
-];
-
-const experience = [
-  {
-    company: "LICT",
-    role: "FTTH Operations / Rollout",
-    location: "Libya",
-    period: "2026 - Present",
-    description:
-      "Focused on FTTH rollout, OSP operations, service activation, field coordination, material management, operational tracking, dashboards, and process automation."
-  },
-  {
-    company: "Nokia",
-    role: "FTTH Technical Support Team Leader",
-    location: "Jordan",
-    period: "2019 - 2026",
-    description:
-      "Led FTTH technical support activities across service activation, field coordination, troubleshooting, operational monitoring, reporting, and workflow improvement."
-  },
-  {
-    company: "Nokia",
-    role: "Technical Support Engineer",
-    location: "Jordan",
-    period: "2017 - 2019",
-    description:
-      "Supported FTTH technical operations, service activation, troubleshooting, and field support activities."
-  },
-  {
-    company: "The BlueZone",
-    role: "NOC Engineer",
-    location: "Jordan",
-    period: "2016 - 2017",
-    description:
-      "Handled network monitoring, alarms, incidents, troubleshooting, escalation, and operational reporting."
-  }
-];
+const portraitPath = "/aysar-obeidat.jpg";
+const hasPortrait = existsSync(join(process.cwd(), "public", "aysar-obeidat.jpg"));
 
 const navItems = [
   { label: "About", href: "/#about" },
   { label: "Expertise", href: "/#expertise" },
   { label: "Projects", href: "/#projects" },
   { label: "Experience", href: "/#experience" },
+  { label: "FTTH Approach", href: "/#approach" },
   { label: "Contact", href: "/#contact" }
 ];
+
+const expertiseGroups = [
+  {
+    title: "FTTH & OSP",
+    icon: "fiber",
+    skills: [
+      "FTTH Rollout",
+      "OSP Deployment",
+      "Fiber Optic Networks",
+      "Service Activation",
+      "Network Troubleshooting",
+      "FTTH Site Survey"
+    ]
+  },
+  {
+    title: "Operations & Leadership",
+    icon: "operations",
+    skills: [
+      "Field Operations",
+      "Team Leadership",
+      "Material & Warehouse Operations",
+      "Rollout Follow-up",
+      "Technical Support",
+      "Operational Reporting"
+    ]
+  },
+  {
+    title: "Digital Transformation",
+    icon: "digital",
+    skills: [
+      "Telecom Process Automation",
+      "Operational Dashboards",
+      "Data Analytics & KPIs",
+      "Workflow Digitalization",
+      "Digital Field Tools",
+      "Data-Driven Operations"
+    ]
+  }
+];
+
+const secondaryProjects = [
+  {
+    title: "FTTH Rollout Management",
+    challenge:
+      "FTTH rollout involves multiple areas, field teams, activities, materials, and milestones running simultaneously. Without centralized visibility, tracking progress, productivity, delays, and field performance can become difficult.",
+    solution:
+      "A digital rollout management platform designed to provide a clear operational view of FTTH deployment progress and support faster, data-driven follow-up.",
+    workflow: [
+      "Plan",
+      "Survey",
+      "Deployment",
+      "Progress Tracking",
+      "Field Follow-up",
+      "Completion",
+      "Reporting"
+    ],
+    capabilities: [
+      "Rollout Progress Tracking",
+      "Area / Zone Monitoring",
+      "Planned vs. Actual Progress",
+      "Daily & Weekly Productivity",
+      "Field Team Performance",
+      "Material Utilization Visibility",
+      "Delay & Issue Tracking",
+      "Operational Dashboards",
+      "Management Reporting"
+    ],
+    visual: "rollout"
+  },
+  {
+    title: "FTTH Site Survey & Infrastructure Mapping",
+    challenge:
+      "FTTH rollout planning requires accurate field information about buildings, poles, locations, user density, and infrastructure conditions. Manual survey methods can create inconsistent records, missing coordinates, duplicated data, and limited visibility of field progress.",
+    solution:
+      "A digital FTTH field survey and infrastructure mapping platform designed to capture buildings, poles, GPS coordinates, photos, and field information directly from survey teams while providing real-time visibility of survey progress on an interactive map.",
+    workflow: [
+      "Area Assignment",
+      "Field Survey",
+      "Building / Pole Capture",
+      "GPS Location",
+      "Photos",
+      "Validation",
+      "Map Visualization",
+      "Reporting"
+    ],
+    capabilities: [
+      "Building Survey & Mapping",
+      "Pole Survey & Mapping",
+      "Pole Installation / Planting Tracking",
+      "GPS Coordinates Capture",
+      "Interactive Map Visualization",
+      "Building Type & Status",
+      "Users / Premises Data",
+      "Field Technician Tracking",
+      "Photo Evidence",
+      "Area & Technician Filters",
+      "Survey Progress KPIs",
+      "Search & Data Validation"
+    ],
+    visual: "mapping"
+  }
+];
+
+const experience = [
+  {
+    period: "2026 - Present",
+    company: "LICT",
+    location: "Libya",
+    role: "FTTH Operations / Rollout",
+    description:
+      "FTTH rollout operations, field coordination, deployment follow-up, material coordination, operational reporting, and digital workflow improvement.",
+    current: true
+  },
+  {
+    period: "2019 - 2026",
+    company: "Nokia",
+    location: "Jordan",
+    role: "FTTH Technical Support Team Leader",
+    description:
+      "Led FTTH technical support and activation operations, coordinated field teams, managed service delivery issues, and supported end-to-end FTTH operations."
+  },
+  {
+    period: "2017 - 2019",
+    company: "Nokia",
+    location: "Jordan",
+    role: "Technical Support Engineer",
+    description:
+      "FTTH service activation, technical troubleshooting, field support, and operational coordination."
+  },
+  {
+    period: "2016 - 2017",
+    company: "The BlueZone",
+    location: "Jordan",
+    role: "NOC Engineer",
+    description: "Network monitoring, incident handling, troubleshooting, and operational support."
+  }
+];
+
+const lifecycle = [
+  "Design & Planning",
+  "Site Survey",
+  "BOQ & Materials",
+  "Warehouse",
+  "Field Deployment",
+  "Rollout Tracking",
+  "Activation",
+  "As-Built & Reporting"
+];
+
+function ContactAction({
+  href,
+  children,
+  download
+}: {
+  href: string;
+  children: React.ReactNode;
+  download?: boolean;
+}) {
+  if (!href) {
+    return (
+      <span className="contact-link is-placeholder" aria-disabled="true">
+        {children}: Placeholder
+      </span>
+    );
+  }
+
+  return (
+    <a className="contact-link" href={href} download={download}>
+      {children}
+    </a>
+  );
+}
 
 export default function Home() {
   return (
@@ -98,102 +211,238 @@ export default function Home() {
       </header>
 
       <section id="top" className="hero section-shell">
-        <div className="hero-copy">
+        <div className="hero-copy reveal">
           <p className="eyebrow">FTTH / OSP Operations Portfolio</p>
           <h1>Aysar Obeidat</h1>
           <p className="hero-title">
             FTTH Operations & Rollout | OSP Deployment | Telecom Digital
             Transformation
           </p>
-          <p className="hero-intro">
-            Combining telecom operations experience with digital solutions to
-            improve FTTH deployment, material control, field visibility, and
-            operational efficiency.
+          <p className="hero-statement">
+            Turning FTTH field operations into measurable, traceable, and
+            digitally managed workflows.
+          </p>
+          <p className="hero-support">
+            10+ Years Telecom Experience • FTTH • OSP • Operations • Digital
+            Transformation
           </p>
           <div className="hero-actions" aria-label="Primary actions">
             <Link className="button primary" href="/#projects">
-              View Projects
+              View My Work
             </Link>
-            <Link
-              className="button secondary"
-              href="/#contact"
-              aria-label="LinkedIn placeholder in contact section"
-            >
-              LinkedIn
-            </Link>
+            <ContactAction href={contact.cvUrl} download>
+              Download CV
+            </ContactAction>
+            <ContactAction href={contact.linkedInUrl}>LinkedIn</ContactAction>
           </div>
         </div>
-        <div className="network-panel" aria-hidden="true">
-          <div className="fiber-map">
-            <span className="node node-a" />
-            <span className="node node-b" />
-            <span className="node node-c" />
-            <span className="node node-d" />
-            <span className="node node-e" />
-            <span className="line line-1" />
-            <span className="line line-2" />
-            <span className="line line-3" />
-            <span className="line line-4" />
-          </div>
-          <div className="panel-metric">
-            <span>Operations Focus</span>
-            <strong>FTTH Rollout</strong>
-          </div>
-          <div className="panel-metric">
-            <span>Digital Layer</span>
-            <strong>Field Visibility</strong>
+
+        <div className="hero-visual reveal" aria-label="Professional portrait area">
+          <div className="portrait-card">
+            <div className="network-panel" aria-hidden="true">
+              <span className="hero-node hero-node-a" />
+              <span className="hero-node hero-node-b" />
+              <span className="hero-node hero-node-c" />
+              <span className="hero-line hero-line-a" />
+              <span className="hero-line hero-line-b" />
+              <span className="hero-line hero-line-c" />
+            </div>
+            <div className="portrait-frame">
+              {hasPortrait ? (
+                <Image
+                  src={portraitPath}
+                  alt="Aysar Obeidat professional portrait"
+                  fill
+                  priority
+                  sizes="(max-width: 920px) 80vw, 380px"
+                />
+              ) : (
+                <div className="portrait-placeholder">
+                  <span>Aysar Obeidat</span>
+                  <strong>Portrait Placeholder</strong>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="section-shell split-section">
-        <div>
-          <p className="section-kicker">About</p>
-          <h2>Telecom operations experience shaped by field reality.</h2>
+      <section id="about" className="section-shell about-section">
+        <div className="section-heading reveal">
+          <p className="section-kicker">About Me</p>
+          <h2>From network operations to FTTH leadership and rollout execution.</h2>
         </div>
-        <div className="body-copy">
-          <p>
-            Aysar is a telecom professional with 10+ years of progressive
-            experience across FTTH operations, FTTH rollout, OSP deployment,
-            service activation, technical support, field coordination, network
-            operations, and team leadership.
-          </p>
-          <p>
-            Alongside operational delivery, he develops internal digital tools,
-            dashboards, automation, and practical workflows that help solve real
-            telecom operational challenges across material control, reporting,
-            field visibility, and process consistency.
-          </p>
+        <div className="about-layout">
+          <div className="body-copy reveal">
+            <p>
+              I am a telecom professional with 10+ years of experience across
+              network operations, FTTH technical support, service activation, team
+              leadership, field coordination, and rollout operations.
+            </p>
+            <p>
+              My experience has given me a practical understanding of how FTTH
+              projects move from planning and field execution to activation and
+              operational follow-up.
+            </p>
+            <p>
+              Today, I combine that telecom experience with digital tools,
+              automation, dashboards, and data-driven workflows to improve
+              visibility, material control, field coordination, and operational
+              efficiency.
+            </p>
+            <p>
+              I focus on solving real operational challenges, not technology for
+              the sake of technology.
+            </p>
+          </div>
+          <div className="metric-grid reveal" aria-label="Professional highlights">
+            <article>
+              <strong>10+ Years</strong>
+              <span>Telecom Experience</span>
+            </article>
+            <article>
+              <strong>7 Years</strong>
+              <span>FTTH Team Leadership</span>
+            </article>
+            <article>
+              <strong>FTTH & OSP</strong>
+              <span>Operations & Rollout</span>
+            </article>
+            <article>
+              <strong>Digital Transformation</strong>
+              <span>Automation & Operational Tools</span>
+            </article>
+          </div>
         </div>
       </section>
 
       <section id="expertise" className="section-shell">
-        <div className="section-heading">
+        <div className="section-heading reveal">
           <p className="section-kicker">Core Expertise</p>
-          <h2>Capabilities across rollout, operations, and improvement.</h2>
+          <h2>Focused capability groups for FTTH delivery and operational control.</h2>
         </div>
-        <div className="expertise-grid" aria-label="Core expertise areas">
-          {expertise.map((item) => (
-            <span key={item}>{item}</span>
+        <div className="expertise-cards">
+          {expertiseGroups.map((group) => (
+            <article className="expertise-card reveal" key={group.title}>
+              <div className={`category-icon ${group.icon}`} aria-hidden="true">
+                <span />
+              </div>
+              <h3>{group.title}</h3>
+              <div className="chip-list">
+                {group.skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="section-shell">
-        <div className="section-heading">
+      <section id="projects" className="section-shell projects-section">
+        <div className="section-heading reveal">
           <p className="section-kicker">Featured Projects</p>
-          <h2>Digital concepts designed for telecom operational control.</h2>
+          <h2>Operational digital solutions shaped around FTTH field execution.</h2>
         </div>
+
+        <article className="featured-project reveal">
+          <div className="project-content">
+            <span className="status">Interactive Demo — Under Development</span>
+            <h3>FTTH Warehouse & Material Control</h3>
+            <div className="project-text">
+              <h4>Operational Challenge</h4>
+              <p>
+                FTTH rollout requires continuous coordination between material
+                planning, warehouse operations, field teams, and project execution.
+                Without clear material traceability, it becomes difficult to track
+                what was requested, approved, issued, transferred, returned, and
+                ultimately used in the field.
+              </p>
+              <h4>Solution</h4>
+              <p>
+                A digital FTTH material-management workflow designed to provide
+                end-to-end visibility and traceability across warehouse and field
+                operations.
+              </p>
+            </div>
+            <div className="workflow-flow primary-flow" aria-label="Material control workflow">
+              {[
+                "BOQ",
+                "Material Request",
+                "Approval",
+                "Warehouse",
+                "Field Issue",
+                "Return / Transfer",
+                "Reconciliation",
+                "Reporting"
+              ].map((step) => (
+                <span key={step}>{step}</span>
+              ))}
+            </div>
+          </div>
+          <div className="dashboard-preview" aria-label="Future dashboard screenshot area">
+            <div className="preview-topbar">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="preview-grid">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="preview-chart">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <p>Future application screenshot area</p>
+          </div>
+          <div className="capability-panel">
+            <h4>Key Capabilities</h4>
+            <div className="chip-list dense">
+              {[
+                "Material Requests & Approval Workflow",
+                "Warehouse Inventory Tracking",
+                "Material Issue & Return",
+                "Warehouse-to-Warehouse Transfer",
+                "Field / Technician Material Tracking",
+                "Serial & QR Tracking",
+                "Stock & Material Movement History",
+                "Operational Dashboard & Reporting",
+                "Audit Trail & Traceability"
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+
         <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.title}>
-              <div className="card-topline">
-                <span className="status">Coming Soon</span>
+          {secondaryProjects.map((project) => (
+            <article className={`project-card ${project.visual} reveal`} key={project.title}>
+              <div className="project-visual" aria-hidden="true">
+                <span />
+                <span />
+                <span />
               </div>
+              <span className="status">Interactive Demo — Under Development</span>
               <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="project-focus">
-                {project.focus.map((item) => (
+              <div className="project-text compact">
+                <h4>Operational Challenge</h4>
+                <p>{project.challenge}</p>
+                <h4>Solution</h4>
+                <p>{project.solution}</p>
+              </div>
+              <div className="workflow-flow" aria-label={`${project.title} workflow`}>
+                {project.workflow.map((step) => (
+                  <span key={step}>{step}</span>
+                ))}
+              </div>
+              <div className="chip-list dense">
+                {project.capabilities.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
@@ -203,21 +452,34 @@ export default function Home() {
       </section>
 
       <section id="experience" className="section-shell">
-        <div className="section-heading">
+        <div className="section-heading reveal">
           <p className="section-kicker">Professional Experience</p>
-          <h2>Operational roles across FTTH, support, and network operations.</h2>
+          <h2>A clear progression from NOC operations to FTTH rollout leadership.</h2>
+        </div>
+        <div className="career-path reveal" aria-label="Career progression">
+          {["NOC", "Technical Support", "FTTH Team Leadership", "FTTH Operations & Rollout"].map(
+            (step) => (
+              <span key={step}>{step}</span>
+            )
+          )}
         </div>
         <div className="timeline">
           {experience.map((item) => (
-            <article className="experience-item" key={`${item.company}-${item.role}`}>
+            <article className="experience-item reveal" key={`${item.company}-${item.role}`}>
               <div className="timeline-marker" aria-hidden="true" />
               <div>
                 <div className="experience-meta">
                   <span>{item.period}</span>
-                  <span>{item.location}</span>
+                  <span>
+                    {item.company} — {item.location}
+                  </span>
                 </div>
-                <h3>{item.company}</h3>
-                <p className="role">{item.role}</p>
+                <h3>{item.role}</h3>
+                {item.current ? (
+                  <span className="current-focus">
+                    Current Focus: FTTH Rollout + Digital Transformation
+                  </span>
+                ) : null}
                 <p>{item.description}</p>
               </div>
             </article>
@@ -225,24 +487,57 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="approach" className="section-shell approach-section">
+        <div className="section-heading reveal">
+          <p className="section-kicker">How I Approach FTTH Operations</p>
+          <h2>
+            Connecting planning, materials, field execution, activation, and
+            reporting into one operational workflow.
+          </h2>
+        </div>
+        <div className="lifecycle-flow reveal" aria-label="FTTH operational lifecycle">
+          {lifecycle.map((item, index) => (
+            <article key={item}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item}</strong>
+            </article>
+          ))}
+        </div>
+        <div className="principles reveal">
+          <strong>VISIBILITY</strong>
+          <strong>TRACEABILITY</strong>
+          <strong>ACCOUNTABILITY</strong>
+        </div>
+        <p className="approach-note reveal">
+          Better operational visibility enables faster decisions, stronger
+          coordination, and more reliable FTTH project execution.
+        </p>
+      </section>
+
       <section id="contact" className="contact-section">
         <div className="section-shell contact-inner">
-          <div>
-            <p className="section-kicker">Contact</p>
-            <h2>Open to FTTH, OSP rollout, and telecom operations opportunities.</h2>
+          <div className="reveal">
+            <p className="section-kicker">Let&apos;s Connect</p>
+            <h2>
+              Interested in FTTH rollout, OSP operations, telecom digital
+              transformation, or discussing opportunities to improve field and
+              operational workflows?
+            </h2>
           </div>
-          <div className="contact-actions" aria-label="Contact placeholders">
-            <span className="contact-link is-placeholder" aria-disabled="true">
-              LinkedIn: Placeholder
-            </span>
-            <span className="contact-link is-placeholder" aria-disabled="true">
-              Email: Placeholder
-            </span>
-            <span className="contact-link is-placeholder" aria-disabled="true">
-              Download CV: Placeholder
-            </span>
+          <div className="contact-actions reveal" aria-label="Contact actions">
+            <ContactAction href={contact.linkedInUrl}>LinkedIn</ContactAction>
+            <ContactAction href={contact.email ? `mailto:${contact.email}` : ""}>
+              Email Me
+            </ContactAction>
+            <ContactAction href={contact.cvUrl} download>
+              Download CV
+            </ContactAction>
           </div>
         </div>
+        <footer className="footer">
+          <strong>Aysar Obeidat</strong>
+          <span>FTTH Operations • OSP Rollout • Telecom Digital Transformation</span>
+        </footer>
       </section>
     </main>
   );
