@@ -279,7 +279,7 @@ h4 {
 
 .portrait-frame img {
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
 }
 
 .portrait-placeholder {
