@@ -14,6 +14,8 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience", mobileOnly: true },
+  { label: "FTTH Approach", href: "#approach", mobileOnly: true },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -276,7 +278,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.16 }
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.12 }
     );
 
     revealItems.forEach((item) => revealObserver.observe(item));
@@ -314,6 +316,15 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const toggleProject = (id: string) => {
     setOpenProjects((current) => ({ ...current, [id]: !current[id] }));
   };
@@ -340,12 +351,18 @@ export default function Home() {
           <span aria-hidden="true" />
           <strong>Aysar Obeidat</strong>
         </Link>
-        <button className="menu-button" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen}>
+        <button
+          className="menu-button"
+          type="button"
+          onClick={() => setMenuOpen((value) => !value)}
+          aria-controls="site-menu"
+          aria-expanded={menuOpen}
+        >
           Menu
         </button>
-        <nav className={menuOpen ? "open" : ""}>
+        <nav id="site-menu" className={menuOpen ? "open" : ""}>
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} onClick={closeMenu}>
+            <Link key={item.href} href={item.href} className={item.mobileOnly ? "mobile-nav-extra" : ""} onClick={closeMenu}>
               {item.label}
             </Link>
           ))}
@@ -373,14 +390,6 @@ export default function Home() {
             </ContactAction>
             <ContactAction href={contact.linkedInUrl}>LinkedIn</ContactAction>
           </div>
-          <div className="stats-strip" aria-label="Technical summary">
-            {stats.map((item) => (
-              <article key={item.label}>
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-              </article>
-            ))}
-          </div>
         </div>
 
         <div className="route-card portrait-route-card reveal" aria-label="Aysar Obeidat professional portrait">
@@ -391,6 +400,14 @@ export default function Home() {
             priority
             sizes="(max-width: 1080px) 82vw, 420px"
           />
+        </div>
+        <div className="stats-strip hero-stats reveal" aria-label="Technical summary">
+          {stats.map((item) => (
+            <article key={item.label}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))}
         </div>
       </section>
 
