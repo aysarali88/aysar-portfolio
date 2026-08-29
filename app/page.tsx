@@ -441,7 +441,13 @@ export default function Home() {
                 <span />
                 <span />
               </div>
-              <span className="status">Interactive Demo — Under Development</span>
+              {project.title === "FTTH Rollout Management" ? (
+                <Link className="button primary project-demo-link" href="/demo/rollout">
+                  Explore Interactive Demo
+                </Link>
+              ) : (
+                <span className="status">Interactive Demo — Under Development</span>
+              )}
               <h3>{project.title}</h3>
               <div className="project-text compact">
                 <h4>Operational Challenge</h4>
