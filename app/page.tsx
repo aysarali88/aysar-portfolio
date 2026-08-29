@@ -412,12 +412,12 @@ export default function Home() {
       </section>
 
       <section id="about" className="section-shell section-block">
-        <SectionHeading label="01 / ABOUT" title="From network operations to FTTH leadership and rollout execution." />
+        <SectionHeading label="01 / ABOUT" title="FTTH operations, rollout execution, and digital transformation." />
         <div className="about-layout">
           <div className="body-copy reveal">
             <p>
-              Aysar Obeidat is a telecom operations professional with 10+ years of experience across network operations,
-              FTTH technical support, service activation, team leadership, field coordination, and rollout operations.
+              Aysar Obeidat is a telecom professional with 10+ years of experience across FTTH technical support,
+              service activation, team leadership, field coordination, and rollout operations.
             </p>
             <p>
               His work connects the practical realities of FTTH and OSP execution: survey data, field teams, material
