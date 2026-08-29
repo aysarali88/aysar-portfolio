@@ -383,42 +383,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="route-card portrait-route-card reveal" aria-label="Aysar Obeidat portrait with as-built fiber route detail">
-          <div className="route-card-top">
-            <span>AS-BUILT FIBER ROUTE</span>
-            <b>FTTH / OSP / FIELD DATA</b>
-          </div>
-          <div className="portrait-route-body">
-            <svg className="portrait-route-drawing" viewBox="0 0 560 420" aria-hidden="true">
-              <path className="route-grid" d="M44 58h472M44 126h472M44 194h472M44 262h472M44 330h472M90 34v352M166 34v352M242 34v352M318 34v352M394 34v352M470 34v352" />
-              <path className="route-path portrait-route-path" d="M58 342V78H502V342" />
-              <g className="route-node portrait-node-a">
-                <circle cx="58" cy="342" r="10" />
-              </g>
-              <g className="route-node portrait-node-b">
-                <circle cx="58" cy="78" r="10" />
-              </g>
-              <g className="route-node portrait-node-c">
-                <circle cx="502" cy="78" r="10" />
-              </g>
-              <g className="route-node final portrait-node-d">
-                <circle cx="502" cy="342" r="12" />
-              </g>
-            </svg>
-            <div className="portrait-frame">
-              <Image
-                src="/aysar-obeidat-portrait-v2.jpg"
-                alt="Aysar Obeidat professional portrait"
-                fill
-                priority
-                sizes="(max-width: 1080px) 82vw, 380px"
-              />
-            </div>
-            <span className="portrait-callout callout-a">FIELD OPS</span>
-            <span className="portrait-callout callout-b">OSP</span>
-            <span className="portrait-callout callout-c">ROLLOUT</span>
-            <span className="portrait-callout callout-d">DIGITAL TOOLS</span>
-          </div>
+        <div className="route-card portrait-route-card reveal" aria-label="Aysar Obeidat professional portrait">
+          <Image
+            src="/aysar-obeidat-portrait-v2.jpg"
+            alt="Aysar Obeidat professional portrait"
+            fill
+            priority
+            sizes="(max-width: 1080px) 82vw, 420px"
+          />
         </div>
       </section>
 
