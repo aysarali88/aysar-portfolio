@@ -374,22 +374,8 @@ textarea {
 
 .portrait-route-body::before,
 .portrait-route-body::after {
-  position: absolute;
-  z-index: 2;
-  width: 120px;
-  height: 1px;
-  background: rgba(246, 244, 238, 0.28);
-  content: "";
-}
-
-.portrait-route-body::before {
-  top: 86px;
-  right: 40px;
-}
-
-.portrait-route-body::after {
-  bottom: 82px;
-  left: 44px;
+  display: none;
+  content: none;
 }
 
 .portrait-route-drawing {
@@ -430,23 +416,23 @@ textarea {
 }
 
 .callout-a {
-  left: 38px;
-  bottom: 128px;
+  left: 36px;
+  bottom: 22px;
 }
 
 .callout-b {
-  left: 74px;
-  top: 112px;
+  left: 36px;
+  top: 22px;
 }
 
 .callout-c {
-  right: 56px;
-  top: 92px;
+  right: 36px;
+  top: 22px;
 }
 
 .callout-d {
-  right: 38px;
-  bottom: 108px;
+  right: 36px;
+  bottom: 22px;
 }
 
 .route-grid {
@@ -461,6 +447,11 @@ textarea {
   stroke-linecap: square;
   stroke-linejoin: miter;
   stroke-width: 6;
+}
+
+.portrait-route-path {
+  opacity: 0.88;
+  stroke-width: 4;
 }
 
 .route-branch {
@@ -1092,12 +1083,12 @@ textarea {
 
   .callout-a,
   .callout-d {
-    bottom: 64px;
+    bottom: 14px;
   }
 
   .callout-b,
   .callout-c {
-    top: 74px;
+    top: 14px;
   }
 
   .fact-list article,

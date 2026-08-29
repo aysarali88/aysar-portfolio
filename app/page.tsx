@@ -391,26 +391,19 @@ export default function Home() {
           <div className="portrait-route-body">
             <svg className="portrait-route-drawing" viewBox="0 0 560 420" aria-hidden="true">
               <path className="route-grid" d="M44 58h472M44 126h472M44 194h472M44 262h472M44 330h472M90 34v352M166 34v352M242 34v352M318 34v352M394 34v352M470 34v352" />
-              <path className="route-path" d="M68 322H142V248H224V184H320V112H488" />
-              <path className="route-branch" d="M224 184v78h88M320 112v76h112" />
-              <g className="route-node">
-                <circle cx="68" cy="322" r="10" />
-                <text x="54" y="356">FIELD OPS</text>
+              <path className="route-path portrait-route-path" d="M58 342V78H502V342" />
+              <g className="route-node portrait-node-a">
+                <circle cx="58" cy="342" r="10" />
               </g>
-              <g className="route-node">
-                <circle cx="224" cy="184" r="10" />
-                <text x="188" y="164">OSP</text>
+              <g className="route-node portrait-node-b">
+                <circle cx="58" cy="78" r="10" />
               </g>
-              <g className="route-node">
-                <circle cx="320" cy="112" r="10" />
-                <text x="278" y="90">ROLLOUT</text>
+              <g className="route-node portrait-node-c">
+                <circle cx="502" cy="78" r="10" />
               </g>
-              <g className="route-node final">
-                <circle cx="488" cy="112" r="12" />
-                <text x="424" y="148">DIGITAL TOOLS</text>
+              <g className="route-node final portrait-node-d">
+                <circle cx="502" cy="342" r="12" />
               </g>
-              <text className="route-tag" x="60" y="78">COORD 32.0 / 35.8</text>
-              <text className="route-tag" x="342" y="214">AS-BUILT REF</text>
             </svg>
             <div className="portrait-frame">
               <Image
