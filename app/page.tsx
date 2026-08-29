@@ -195,7 +195,7 @@ const experience = [
 ];
 
 const operatingModel = [
-  "Design & Planning",
+  "Operational Planning",
   "Site Survey",
   "BOQ & Materials",
   "Warehouse",
