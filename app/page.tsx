@@ -517,7 +517,10 @@ export default function Home() {
       </section>
 
       <section id="experience" className="section-shell section-block">
-        <SectionHeading label="FIELD EXPERIENCE" title="A clear progression from NOC operations to FTTH rollout leadership." />
+        <SectionHeading
+          label="FIELD EXPERIENCE"
+          title="Experience across FTTH technical support, team leadership, operational management, and rollout execution."
+        />
         <div className="career-route reveal" aria-label="Career progression">
           {["NOC", "TECHNICAL SUPPORT", "FTTH TEAM LEADERSHIP", "FTTH OPERATIONS & ROLLOUT"].map((step) => (
             <span key={step}>{step}</span>
