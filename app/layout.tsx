@@ -22,6 +22,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aysarobeidat.site"),
   title: "Aysar Obeidat | FTTH Operations & OSP Rollout",
   description:
     "Professional portfolio for Aysar Obeidat, focused on FTTH operations, OSP deployment, rollout management, and telecom digital transformation.",
@@ -34,11 +35,32 @@ export const metadata: Metadata = {
     "Fiber Optics"
   ],
   authors: [{ name: "Aysar Obeidat" }],
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
     title: "Aysar Obeidat | FTTH Operations & OSP Rollout",
     description:
-      "FTTH Operations & Rollout, OSP Deployment, and Telecom Digital Transformation portfolio.",
-    type: "website"
+      "Portfolio for FTTH operations, OSP deployment, rollout management, and telecom digital transformation.",
+    url: "/",
+    siteName: "Aysar Obeidat Portfolio",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Aysar Obeidat FTTH operations and rollout portfolio preview"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aysar Obeidat | FTTH Operations & OSP Rollout",
+    description:
+      "Portfolio for FTTH operations, OSP deployment, rollout management, and telecom digital transformation.",
+    images: ["/opengraph-image"]
   }
 };
 
